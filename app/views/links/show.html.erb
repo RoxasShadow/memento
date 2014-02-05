@@ -1,0 +1,22 @@
+<% title @link.title %>
+<%= javascript_include_tag 'feeds' %>
+
+<p>
+  <strong>Title:</strong>
+  <a href='<%= @link.url %>'><%= @link.title %></a>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @link.description %>
+</p>
+ 
+<p>
+  <strong>Feeds:</strong>
+  <%= @link.feeds %>
+</p>
+
+<div id="feeds"></div>
+
+<%= link_to 'Edit',   edit_link_path(@link) %> |
+<%= link_to 'Delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure? '} %>

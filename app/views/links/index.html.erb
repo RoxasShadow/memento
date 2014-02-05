@@ -1,0 +1,10 @@
+<% title 'Listing links' %>
+
+<% @links.each do |link| %>
+  <%= link_to ?♦,         link_path(link)      %> 
+  <%= link_to link.title, link.url             %>:
+  <%= link.description %> 
+    <%= link_to '(Edit)',     edit_link_path(link) %> 
+    <%= link_to '(Delete)',   link_path(link), method: :delete,  data: { confirm: 'Are you sure? '} %>
+  <br>
+<% end %>
