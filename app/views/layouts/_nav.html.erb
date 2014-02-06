@@ -1,12 +1,26 @@
-<div id="nav">
-  <% if user_signed_in? %>
-    <%= link_to 'Index',    root_path     %>
-    <%= link_to 'New',      new_link_path %>
-    <%= link_to 'My info',  edit_user_registration_path %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    <%= link_to 'Sign in', new_user_session_path      %>
-  <% end -%>
-  
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Memento</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <%= nav_link 'Home',     root_path     %>
+        <%= nav_link 'New',      new_link_path %>
+        <%= nav_link 'My info',  edit_user_registration_path                %>
+        <%= nav_link 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= nav_link 'Sign up', new_user_registration_path %>
+        <%= nav_link 'Sign in', new_user_session_path      %>
+      <% end -%>
+      </ul>
+    </div>
+  </div>
 </div>

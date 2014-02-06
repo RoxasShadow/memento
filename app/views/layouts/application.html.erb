@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= yield :title %> | Memento</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application',               'data-turbolinks-track' => true %>
@@ -10,13 +13,22 @@
 
 <%= render partial: 'layouts/nav' %>
 
-<h2><%= yield :title %></h2>
+<div class="container">
+  <div class="main-contents">
+    <h1><%= yield :title %></h1>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: name if msg.is_a?(String) %>
-<% end %>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a? String %>
+        <div class="alert alert-<%= name == :notice ? "success" : 'warning' %>">
+          <a class="close" data-dismiss="alert">&#215;</a>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        </div>
+      <% end %>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

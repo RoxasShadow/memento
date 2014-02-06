@@ -1,37 +1,26 @@
-<%= form_for @link do |f| %>
+<%= bootstrap_form_for @link, style: :horizontal, left: "col-sm-4", right: "col-sm-5" do |f| %>
 
   <% if @link.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize @link.errors.count, 'error' %> prohibited this link from being saved:</h2>
-      <ul>
-        <% @link.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <h3><%= pluralize @link.errors.count, 'error' %> prohibited this link from being saved:</h3>
+      <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert">&#215;</a>
+        <% if @link.errors.full_messages.length > 1 %>
+          <% @link.errors.full_messages.each do |msg| %>
+            <%= content_tag :li, msg %>
+          <% end %>
+        <% else %>
+          <% @link.errors.full_messages.first %>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
 
-  <p>
-    <%= f.label      :title      %><br>
-    <%= f.text_field :title      %>
-  </p>
- 
-  <p>
-    <%= f.label      :url        %><br>
-    <%= f.text_field :url        %>
-  </p>
- 
-  <p>
-    <%= f.label      :feeds      %><br>
-    <%= f.text_field :feeds      %>
-  </p>
- 
-  <p>
-    <%= f.label     :description %><br>
-    <%= f.text_area :description %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= f.text_field :title      %>
+  <%= f.text_field :url        %>
+  <%= f.text_field :feeds      %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Let's databeis" %>
+
 <% end %>
