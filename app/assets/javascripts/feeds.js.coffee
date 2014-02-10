@@ -29,7 +29,7 @@ $(document).ready ->
 	$.getJSON document.URL + '.json', (data) ->
 		return unless data.feeds
 
-		$.get '/feeds/' + encodeURIComponent(data.feeds), (feeds) ->
+		$.get '/feeds/' + btoa(data.feeds), (feeds) ->
 			$(feeds).find('item').each ->
 				el = $(this)
 

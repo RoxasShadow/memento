@@ -59,7 +59,8 @@ class LinksController < ApplicationController
   end
 
   def feeds
-    render text: open(params[:url]).read, content_type: 'application/xml+rss'
+    url = Base64.decode64 params[:url]
+    render text: open(url).read, content_type: 'application/xml+rss'
   end
 
   private

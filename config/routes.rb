@@ -1,7 +1,7 @@
 Memento::Application.routes.draw do
   devise_for :users
   resources  :links
-  match      'feeds/:url' => 'links#feeds', constraints: { url: /.*/ }, via: [ :get ]
+  match      'feeds/:url' => 'links#feeds', via: [ :get ]
 
   devise_scope :user do
     authenticated :user do
