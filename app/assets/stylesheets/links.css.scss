@@ -17,9 +17,20 @@ body {
 .main-contents {
   padding   : 40px 15px;
   text-align: center;
+  color     : #eee;
 }
 
 .feedThumb {
   display: inline-block;
   float  : left;
+}
+
+.panel-default li.list-group-item, .panel-default .panel-body {
+  background-color: #ddd;
+  border-color    : #d6d6d6;
+  color           : #333;
+}
+
+.panel-default .panel-heading {
+  background-color: #D3D3D3;
 }
