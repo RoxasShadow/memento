@@ -12,3 +12,7 @@
  *= require_tree .
  *= require bootstrap
  */
+
+a.navbar-brand {
+  cursor: default;
+}
