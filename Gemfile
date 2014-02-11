@@ -7,7 +7,7 @@ gem 'rails', '4.0.2'
 gem 'sqlite3'
 
 # Use postgresql as the database for Active Record (production)
-gem 'psql'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails',     '~> 4.0.0'
@@ -57,3 +57,6 @@ gem 'devise'
 
 # Allow using <%= recaptcha_tags %> in the views
 gem 'recaptcha', require: 'recaptcha/rails'
+
+# Allow using puma as webserver
+gem 'puma'
