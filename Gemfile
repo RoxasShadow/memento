@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record (development and test)
 gem 'sqlite3'
+
+# Use postgresql as the database for Active Record (production)
+gem 'psql'
 
 # Use SCSS for stylesheets
 gem 'sass-rails',     '~> 4.0.0'
@@ -45,7 +48,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Include Bootstrap wrappers for Rails
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'bootstrap_form'
+
+# Include a base authentication system
 gem 'devise'
+
+# Allow using <%= recaptcha_tags %> in the views
 gem 'recaptcha', require: 'recaptcha/rails'
