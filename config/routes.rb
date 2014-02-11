@@ -1,5 +1,5 @@
 Memento::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources  :links
   match      'feeds/:url' => 'links#feeds', via: [ :get ]
 

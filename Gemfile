@@ -47,3 +47,4 @@ end
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'bootstrap_form'
 gem 'devise'
+gem 'recaptcha', require: 'recaptcha/rails'
