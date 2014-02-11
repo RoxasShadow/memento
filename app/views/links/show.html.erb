@@ -1,5 +1,8 @@
 <% title @link.title %>
-<%= javascript_include_tag 'feeds' %>
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'feeds' %>
+<% end %>
 
 <% unless @link.description.strip.empty? %>
   <p>
