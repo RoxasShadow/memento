@@ -5,11 +5,13 @@ Memento::Application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'links#index'
+      root :to      => 'links#index'
+      get  '/index' => 'links#index'
     end
     
     unauthenticated :user do
-      root :to => 'welcome#index', as: :welcome
+      root :to      => 'welcome#index', as: :welcome
+      get  '/index' => 'welcome#index'
     end
   end
 

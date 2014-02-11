@@ -10,5 +10,5 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require ./feeds/mustache
-//= require ./feeds/feeds
+//= require mustache
+//= require ./links_show/feeds

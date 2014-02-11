@@ -1,7 +1,7 @@
 <% title @link.title %>
 
 <% content_for :head do %>
-  <%= javascript_include_tag 'feeds' %>
+  <%= javascript_include_tag 'links_show' %>
 <% end %>
 
 <% unless @link.description.strip.empty? %>
@@ -12,4 +12,5 @@
 <% end %>
 
 <br>
+
 <div id="feeds"></div>
