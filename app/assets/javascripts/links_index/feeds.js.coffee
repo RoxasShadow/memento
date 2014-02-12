@@ -1,6 +1,6 @@
 $(document).ready ->
 
-	$('#feedList').sortable();
+	$('#feedList').sortable { placeholder: 'ui-state-highlight' }
 	$('#feedList').disableSelection();
 
 	$('#feeds').on 'click', 'a.collapse-btn', () ->

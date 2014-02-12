@@ -43,5 +43,12 @@ body {
 
 #feedList {
   background-color: #d3d3d3;
+  list-style-type : none;
   cursor          : move;
+}
+
+.ui-state-highlight {
+  border    : 1px solid #fcefa1;
+  background: #fbf9ee image-url("highlight.png") 50% 50% repeat-x;
+  height    : 40px;
 }
