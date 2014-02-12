@@ -1,6 +1,6 @@
 class Link < ActiveRecord::Base
   validates :title, :presence => true,
-                    :length   => { minimum: 5 }
+                    :length   => { minimum: 3 }
 
   validates :url,   :allow_blank => true,
                     :url         => true
