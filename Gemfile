@@ -52,6 +52,12 @@ end
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'bootstrap_form'
 
+# Include mustache
+gem 'mustache-js-rails'
+
+# Include jQuery UI
+gem 'jquery-ui-rails'
+
 # Include a base authentication system
 gem 'devise'
 
