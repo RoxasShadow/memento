@@ -9,4 +9,10 @@ class Link < ActiveRecord::Base
                     :url         => true
 
   belongs_to :user
+
+  default_scope order: 'priority ASC, created_at ASC'
+
+  before_save do
+    self.priority ||= 1
+  end
 end

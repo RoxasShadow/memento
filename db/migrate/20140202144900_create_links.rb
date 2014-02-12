@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration
       t.string  :title
       t.string  :url
       t.string  :feeds
+      t.integer :priority
       t.text    :description
       t.integer :user_id
 

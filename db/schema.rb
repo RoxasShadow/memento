@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140205104908) do
     t.string   "title"
     t.string   "url"
     t.string   "feeds"
+    t.integer  "priority"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
