@@ -59,4 +59,4 @@ gem 'devise'
 gem 'recaptcha', require: 'recaptcha/rails'
 
 # Allow using puma as webserver
-gem 'puma'
+# gem 'puma'
