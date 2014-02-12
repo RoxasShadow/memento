@@ -1,4 +1,8 @@
 $(document).ready ->
+
+	$('#feedList').sortable();
+	$('#feedList').disableSelection();
+
 	$('#feeds').on 'click', 'a.collapse-btn', () ->
     $(this).toggleClass 'glyphicon-chevron-down glyphicon-chevron-up'
     
