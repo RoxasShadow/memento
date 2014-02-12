@@ -5,52 +5,8 @@
 <% end %>
 
 <% if @links.any? %>
-  <div class="modal fade" id="feedInfo" tabindex="-1" role="dialog" aria-labelledby="feedInfoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="feedInfoLabel">Foo</h4>
-        </div>
-        <div class="modal-body">
-          Bar
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <ul class="list-group" id="feedList">
-
-    <% @links.each do |link| %>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-md-6">
-            <span class="pull-left">
-              <% if not link.url.empty? %>
-                <%= link_to '',       link.url, { class: 'glyphicon glyphicon-globe', target: '_blank', title: "Go to #{link.url}" } %>
-              <% else %>
-                <span class="glyphicon glyphicon-globe" title="This link doesn't point to any URL"></span>
-              <% end %>
-
-              <%= link_to link.title, link_path(link) %><%= ": #{link.description}" unless link.description.strip.empty? %>
-            </span>
-          </div>
-          <div class="col-md-6">
-            <span class="pull-right">
-              <%= link_to '', edit_link_path(link), { class: 'glyphicon glyphicon-edit',   title: 'Edit'                                                        } %> 
-              <%= link_to '', link_path(link),      { class: 'glyphicon glyphicon-remove', title: 'Delete', method: :delete, data: { confirm: 'Are you sure?' } } %>
-            </span>
-          </div>
-        </div>
-      </li>
-    <% end %>
-
-    </ul>
-  </div>
+  <%= render 'modal' %>
+  <%= render 'feeds' %>
   
   <div class="panel-group" id="feeds"></div>
 <% else %>

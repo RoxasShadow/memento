@@ -5,10 +5,7 @@
 <% end %>
 
 <% unless @link.description.strip.empty? %>
-  <p>
-    <strong>Description:</strong>
-    <%= @link.description %>
-  </p>
+  <%= render 'feed' %>
 <% end %>
 
 <br>
