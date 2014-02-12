@@ -13,8 +13,13 @@
         <div class="row">
           <div class="col-md-6">
             <span class="pull-left">
-              <%= link_to ?♦,         link_path(link)            %>
-              <%= link_to link.title, link.url, target: '_blank' %><%= ": #{link.description}" unless link.description.strip.empty? %>
+              <% if not link.url.empty? %>
+                <%= link_to '',       link.url, { class: 'glyphicon glyphicon-globe', target: '_blank', title: "Go to #{link.url}" } %>
+              <% else %>
+                <span class="glyphicon glyphicon-globe" title="This link doesn't point to any URL"></span>
+              <% end %>
+
+              <%= link_to link.title, link_path(link) %><%= ": #{link.description}" unless link.description.strip.empty? %>
             </span>
           </div>
           <div class="col-md-6">

@@ -47,6 +47,10 @@ body {
   cursor          : move;
 }
 
+#feedList span.glyphicon {
+  cursor: default;
+}
+
 .ui-state-highlight {
   border    : 1px solid #fcefa1;
   background: #fbf9ee image-url("highlight.png") 50% 50% repeat-x;
