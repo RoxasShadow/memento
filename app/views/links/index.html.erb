@@ -1,7 +1,7 @@
 <% title 'Your links' %>
 
 <% content_for :head do %>
-  <%= javascript_include_tag 'links_index' %>
+  <%= javascript_include_tag 'links_index', 'data-turbolinks-track' => true %>
 <% end %>
 
 <% if @links.any? %>

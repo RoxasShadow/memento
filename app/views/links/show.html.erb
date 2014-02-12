@@ -1,7 +1,7 @@
 <% title @link.title %>
 
 <% content_for :head do %>
-  <%= javascript_include_tag 'links_show' %>
+  <%= javascript_include_tag 'links_show', 'data-turbolinks-track' => true %>
 <% end %>
 
 <% unless @link.description.strip.empty? %>
