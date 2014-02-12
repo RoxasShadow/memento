@@ -1,7 +1,13 @@
 $(document).ready ->
 
 	$('#feedList').sortable { placeholder: 'ui-state-highlight' }
-	$('#feedList').disableSelection();
+	$('#feedList').disableSelection();	
+
+	$('#feeds').on 'click', '.feed', () ->
+    $(this).toggleClass 'col-sm-4 col-sm-12'
+
+   $('#feeds').on 'click', '.panel', () ->
+    $(this).toggleClass 'panel-small panel-wide'
 
 	$('#feeds').on 'click', 'a.collapse-btn', () ->
     $(this).toggleClass 'glyphicon-chevron-down glyphicon-chevron-up'
@@ -18,8 +24,8 @@ $(document).ready ->
 	</div>'
 
 	template = '
-	<div class="col-sm-4">
-		<div class="panel panel-default panel-sized">
+	<div class="col-sm-4 feed">
+		<div class="panel panel-default panel-small">
 			<div class="panel-heading">{{&title}}</div>
 			<div class="panel-body">{{&thumbimage}}{{&description}}</div>
 		</div>
@@ -46,7 +52,7 @@ $(document).ready ->
 						el = $(this)
 
 						_title       = el.find('title').text()
-						_description = el.find('description').text().replace(/(<([^>]+)>)/ig, "$1")
+						_description = el.find('description').text()
 						_link        = el.find('link').text()
 						_thumbimage  = el.find('thumbimage').attr('url')
 						_fullimage   = el.find('fullimage').attr('url')
@@ -58,7 +64,7 @@ $(document).ready ->
 							thumbimage: () ->
 								if _thumbimage
 									url = if _fullimage then _fullimage else '#'
-									"<a href=\"#{url}\"><img src=\"#{_thumbimage}\" class=\"feedThumb\"></a>"
+									"<a href=\"#{url}\" target=\"_blank\"><img src=\"#{_thumbimage}\" class=\"feedThumb\"></a>"
 							description:  _description
 						}
 

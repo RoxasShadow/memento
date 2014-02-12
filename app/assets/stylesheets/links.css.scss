@@ -16,6 +16,10 @@ body {
   color     : #eee;
 }
 
+.feed {
+  padding-bottom: 20px;
+}
+
 .feedThumb {
   display: inline-block;
   float  : left;
@@ -29,11 +33,18 @@ body {
 
 .panel-default .panel-heading {
   background-color: #d3d3d3;
+  height          : 50px;
 }
 
-.panel-sized {
+.panel-small {
   height          : 300px;
   overflow        : hidden;
+  background-color: #ddd;
+}
+
+.panel-wide {
+  height          : 100%;
+  overflow        : auto;
   background-color: #ddd;
 }
 
