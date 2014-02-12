@@ -48,7 +48,7 @@ $(document).ready ->
 				dataType: 'xml'
 				async:    false
 				success:  (feeds, status, jqXHR) ->
-					$(feeds).find('item')[0..4].each ->
+					$(feeds).find('item')[0..5].each ->
 						el = $(this)
 
 						_title       = el.find('title').text()
