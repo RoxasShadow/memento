@@ -42,12 +42,6 @@ body {
   background-color: #ddd;
 }
 
-.panel-wide {
-  height          : 100%;
-  overflow        : auto;
-  background-color: #ddd;
-}
-
 .collapse-btn {
   float: right;
 }
@@ -66,4 +60,12 @@ body {
   border    : 1px solid #fcefa1;
   background: #fbf9ee image-url("highlight.png") 50% 50% repeat-x;
   height    : 40px;
+}
+
+#feedInfo {
+  color: black;
+}
+
+#feedInfo .modal-body {
+  padding-bottom: 10%;
 }

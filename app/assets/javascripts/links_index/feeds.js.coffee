@@ -3,13 +3,17 @@ $(document).ready ->
 	$('#feedList').sortable { placeholder: 'ui-state-highlight' }
 	$('#feedList').disableSelection();	
 
-	$('#feeds').on 'click', '.feed', () ->
-    $(this).toggleClass 'col-sm-4 col-sm-12'
+	$('#feeds').on 'click', '.feed', ->
+		currentFeed = $(this)
+		title    = currentFeed.find('.panel-heading').html()
+		contents = currentFeed.find('.panel-body').html()
 
-   $('#feeds').on 'click', '.panel', () ->
-    $(this).toggleClass 'panel-small panel-wide'
+		feedInfo = $('#feedInfo')
+		feedInfo.find('h4').html          title
+		feedInfo.find('.modal-body').html contents
+		feedInfo.modal()
 
-	$('#feeds').on 'click', 'a.collapse-btn', () ->
+	$('#feeds').on 'click', 'a.collapse-btn', ->
     $(this).toggleClass 'glyphicon-chevron-down glyphicon-chevron-up'
     
 	container = '
@@ -58,10 +62,10 @@ $(document).ready ->
 						_fullimage   = el.find('fullimage').attr('url')
 
 						res = {
-							title:      () ->
+							title:      ->
 								url = if link then link else '#'
 								"<a href=\"#{_link}\" target=\"_blank\">#{_title}</a>"
-							thumbimage: () ->
+							thumbimage: ->
 								if _thumbimage
 									url = if _fullimage then _fullimage else '#'
 									"<a href=\"#{url}\" target=\"_blank\"><img src=\"#{_thumbimage}\" class=\"feedThumb\"></a>"

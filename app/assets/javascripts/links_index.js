@@ -15,4 +15,6 @@
 //= require jquery.ui.widget
 //= require jquery.ui.mouse
 //= require jquery.ui.sortable
+//= require bootstrap/collapse
+//= require bootstrap/modal
 //= require ./links_index/feeds
