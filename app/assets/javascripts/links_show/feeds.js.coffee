@@ -24,7 +24,7 @@ $(document).ready ->
   			pubDate     = el.find('pubDate').text().toDate()
 
   			res = {
-  				title        ->
+  				title:       ->
   					url = if link then link else '#'
   					"<a href=\"#{url}\" target=\"_blank\"><strong>#{title}</strong></a>"
   				author:      -> if author      then "by <em>#{author  }</em> "
