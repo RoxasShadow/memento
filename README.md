@@ -1,9 +1,8 @@
 Memento
 =======
-
-What is
--------
 Just a website where bookmark interesting links and read your RSS feeds.
+
+*Memento* is currently running at [http://memento.giovannicapuano.net)(http://memento.giovannicapuano.net).
 
 Put the world in production
 ---------------------------
