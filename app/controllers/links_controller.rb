@@ -18,11 +18,15 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find params[:id] rescue redirect_to links_path
+    @link = Link.find params[:id] rescue nil
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @link }
+    if @link
+      respond_to do |format|
+        format.html
+        format.json { render json: @link }
+      end
+    else
+      redirect_to links_path
     end
   end
 
