@@ -17,4 +17,5 @@
 //= require jquery.ui.sortable
 //= require bootstrap/collapse
 //= require bootstrap/modal
-//= require ./links_index/feeds
+//= require ./links_index/render
+//= require ./links_index/links

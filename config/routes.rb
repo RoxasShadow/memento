@@ -1,7 +1,8 @@
 Memento::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources  :links
-  match      'feeds/:url' => 'links#feeds', via: [ :get ]
+  match      'feeds/:url'            => 'links#feeds',         via: [ :get        ]
+  match      'links/change_priority' => 'links#swap_priority', via: [ :post, :put ]
 
   devise_scope :user do
     authenticated :user do

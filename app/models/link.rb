@@ -10,9 +10,9 @@ class Link < ActiveRecord::Base
 
   belongs_to :user
 
-  default_scope order: 'priority ASC, created_at ASC'
+  default_scope order: 'priority ASC'
 
   before_save do
-    self.priority ||= 1
+    self.priority ||= self.id
   end
 end

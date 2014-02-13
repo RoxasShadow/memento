@@ -11,4 +11,4 @@
 // about supported directives.
 //
 //= require mustache
-//= require ./links_show/feeds
+//= require ./links_show/render

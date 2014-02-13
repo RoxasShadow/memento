@@ -22,7 +22,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @link }
+      format.json { render json: @link }
     end
   end
 
@@ -31,7 +31,7 @@ class LinksController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render :json => @links }
+      format.json { render json: @links }
     end
   end
 
@@ -56,6 +56,23 @@ class LinksController < ApplicationController
     
     set_flash_message :notice, 'destroy'
     redirect_to links_path
+  end
+
+  def swap_priority
+    new_link = current_user.links.find params[:new_id] rescue nil
+    old_link = current_user.links.find params[:old_id] rescue nil
+
+    res = if new_link && old_link
+      new_link_params = { priority: old_link.priority } 
+      old_link_params = { priority: new_link.priority } 
+      new_link.update(new_link_params) && old_link.update(old_link_params)
+    else
+      'Link not found'
+    end
+
+    respond_to do |format|
+      format.json { render json: res }
+    end
   end
 
   def feeds

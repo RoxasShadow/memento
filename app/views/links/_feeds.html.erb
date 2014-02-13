@@ -2,7 +2,7 @@
   <ul class="list-group" id="feedList">
 
   <% @links.each do |link| %>
-    <li class="list-group-item">
+    <li class="list-group-item" id="link-<%= link.id %>">
       <div class="row">
         <div class="col-md-6">
           <span class="pull-left">
