@@ -1,24 +1,26 @@
 $(document).ready ->
 	renderize()
 
-	oldOrder = []
 	$('#feedList').sortable {
 		placeholder: 'ui-state-highlight'
 		start:  (event, ui) ->
-			oldOrder = $(this).sortable('toArray')
+			$(this).attr('data-previndex', ui.item.index())
 		update: (event, ui) ->
-			newOrder = $(this).sortable('toArray')
-			$.ajax '/links/swap_priority',
-				type:        'POST'
-				dataType:    'json'
-				contentType: 'application/json'
-				data:         JSON.stringify {
-					new_id:     ui.item[0].id.split('link-')[1]
-					old_id:     newOrder[oldOrder.indexOf(ui.item[0].id)].split('link-')[1]
-				}
-			.success ->
-				$('#feeds').html('')
-				renderize()
+      newIndex = ui.item.index()
+      oldIndex = $(this).attr('data-previndex')
+      $(this).removeAttr('data-previndex')
+
+      $.ajax '/links/swap_priority',
+      	type:        'POST'
+      	dataType:    'json'
+      	contentType: 'application/json'
+      	data:         JSON.stringify {
+      		new_id: newIndex
+      		old_id: oldIndex
+      	}
+      .success ->
+      	$('#feeds').html('')
+      	renderize()
 	}
 
 	$('#feedList').disableSelection()

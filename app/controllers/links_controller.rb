@@ -31,7 +31,7 @@ class LinksController < ApplicationController
   end
 
   def index
-    @links = current_user.links.all
+    @links = current_user.links
     
     respond_to do |format|
       format.html
@@ -63,13 +63,34 @@ class LinksController < ApplicationController
   end
 
   def swap_priority
-    new_link = current_user.links.find params[:new_id] rescue nil
-    old_link = current_user.links.find params[:old_id] rescue nil
+    new_index = params[:new_id].to_i
+    old_index = params[:old_id].to_i
+    links     = current_user.links
 
-    res = if new_link && old_link
-      new_link_params = { priority: old_link.priority } 
-      old_link_params = { priority: new_link.priority } 
-      new_link.update(new_link_params) && old_link.update(old_link_params)
+    res = if links.length >= 2
+      if ( (new_index + 1) - (old_index + 1) ).abs > 1
+        if new_index > old_index
+          links[old_index..new_index].each_with_index { |link, i|
+            if i == old_index # item you're moving to the top
+              link.update({ priority: link.priority + new_index })
+            else
+              link.update({ priority: link.priority - 1         })
+            end
+          }
+        else # basso verso l'alto
+          links[new_index..old_index].each_with_index { |link, i|
+            if i == old_index # item you're moving to the top
+              link.update({ priority: link.priority - old_index })
+            else
+              link.update({ priority: link.priority + 1         })
+            end
+          }
+        end
+      else # swap
+        new_link = links[new_index]
+        old_link = links[old_index]
+        new_link.update({ priority: old_link.priority }) && old_link.update({ priority: new_link.priority })
+      end
     else
       'Link not found'
     end
