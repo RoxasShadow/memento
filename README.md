@@ -4,6 +4,8 @@ Just a website where bookmark interesting links and read your RSS feeds.
 
 *Memento* is currently running at [http://memento.giovannicapuano.net](http://memento.giovannicapuano.net).
 
+A video is also available on [YouTube](https://www.youtube.com/watch?v=7AxFSrwa2Lc).
+
 Put the world in production
 ---------------------------
 First of all, configure correctly `config/database.yml` and `config/initializers/recaptcha.rb`.
