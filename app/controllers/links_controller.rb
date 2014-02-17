@@ -88,7 +88,7 @@ class LinksController < ApplicationController
         end
       else # swap
         new_link = { priority: links[new_index].priority, link: links[new_index] }
-        old_link = { priority: links[old_link ].priority, link: links[old_link ] }
+        old_link = { priority: links[old_index].priority, link: links[old_index] }
         
         new_link[:link].update({ priority: old_link[:priority] }) &&
         old_link[:link].update({ priority: new_link[:priority] })
