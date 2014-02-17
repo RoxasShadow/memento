@@ -69,17 +69,17 @@ class LinksController < ApplicationController
 
     res = if links.length >= 2
       if ( (new_index + 1) - (old_index + 1) ).abs > 1
-        if new_index > old_index
+        if new_index > old_index # top to bottom
           links[old_index..new_index].each_with_index { |link, i|
-            if i == old_index # item you're moving to the top
+            if i == old_index # item you're moving
               link.update({ priority: link.priority + new_index })
             else
               link.update({ priority: link.priority - 1         })
             end
           }
-        else # basso verso l'alto
+        else # bottom to top
           links[new_index..old_index].each_with_index { |link, i|
-            if i == old_index # item you're moving to the top
+            if i == old_index # item you're moving
               link.update({ priority: link.priority - old_index })
             else
               link.update({ priority: link.priority + 1         })
@@ -87,9 +87,11 @@ class LinksController < ApplicationController
           }
         end
       else # swap
-        new_link = links[new_index]
-        old_link = links[old_index]
-        new_link.update({ priority: old_link.priority }) && old_link.update({ priority: new_link.priority })
+        new_link = { priority: links[new_index].priority, link: links[new_index] }
+        old_link = { priority: links[old_link ].priority, link: links[old_link ] }
+        
+        new_link[:link].update({ priority: old_link[:priority] }) &&
+        old_link[:link].update({ priority: new_link[:priority] })
       end
     else
       'Link not found'
